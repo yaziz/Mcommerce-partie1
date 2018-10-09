@@ -116,5 +116,23 @@ public class ProductController {
          return margesProduits;
     }
 
+    /*
+    // trierProduitsParOrdreAlphabetique : retourne la liste de tous les produits triés par nom croissant
+    @GetMapping(value =  "/AdminProduits/tri")
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+        List<Product> produits = productDao.findAll();
+        produits.sort(Comparator.comparing(Product::getNom));
+        return produits;
+    }
+    */
+
+
+    // trierProduitsParOrdreAlphabetique : retourne la liste de tous les produits triés par nom croissant
+    @GetMapping(value =  "/AdminProduits/tri")
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+        return productDao.findAllByOrderByNomAsc();
+    }
+
+
 
 }
